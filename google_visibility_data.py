@@ -73,7 +73,7 @@ url = f"AGG_DATA/final_data/raw_data_manomano_fr_fr_{dates_recent}.csv"
 df_fr = pd.read_csv(url,index_col=0)
 st.dataframe(df_fr)
 header =st.header("Get ranking share 🇫🇷")
-df_spread = pd.read_csv(f"RAW_DATA/agg_data_manomano_fr_fr_{dates_recent}.csv")
+df_spread = pd.read_csv(f"RAW_DATA/raw_data_manomano_fr_fr_{dates_recent}.csv")
 chart_2 = alt.Chart(df_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
 st.altair_chart(chart_2, use_container_width=True)
 
