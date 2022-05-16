@@ -84,20 +84,9 @@ url = f"AGG_DATA/final_data/agg_data_manomano_es_es_{dates_recent}.csv"
 df_es = pd.read_csv(url,index_col=0)
 st.write(df_es)
 header =st.header("Get ranking share 🇪🇸")
-raw_data_url = f"RAW_DATA/raw_data_manomano_es_es_{dates}.csv"
-raw_data_fr = pd.read_csv(raw_data_url)
-test = raw_data_fr[["domain","keyword_title","p"]]
-total_queries = test.groupby(['domain']).size() 
-total_queries = total_queries[0]
-total_queries = total_queries / 4
-df_fr_spread = raw_data_fr.filter(items=['keyword_title','p','domain','date'])
-df_fr_spread['Ranking range'] = df_fr_spread.apply(f, axis=1)
-df_fr_spread = df_fr_spread.groupby(['date','Ranking range']).size().reset_index().rename(columns={0:"count"}) 
-df_fr_spread["Share"] = df_fr_spread["count"] / total_queries
-df_fr_spread[["Share"]] = ( 100 * df_fr_spread[["Share"]] ).round(2).astype(str) + "%" # The rounding is optional
-chart_2 = alt.Chart(df_fr_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
+df_spread = pd.read_csv(f"RAW_DATA/raw_data_manomano_es_es_{dates_recent}.csv")
+chart_2 = alt.Chart(df_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
 st.altair_chart(chart_2, use_container_width=True)
-
 
 st.title('SEO visibility metrics 🇮🇹')
 st.write(f"last update {dates_recent}")
@@ -105,20 +94,9 @@ url = f"AGG_DATA/final_data/agg_data_manomano_it_it_{dates_recent}.csv"
 df_it = pd.read_csv(url,index_col=0)
 st.write(df_it)
 header =st.header("Get ranking share 🇮🇹")
-raw_data_url = f"RAW_DATA/raw_data_manomano_it_it_{dates}.csv"
-raw_data_fr = pd.read_csv(raw_data_url)
-test = raw_data_fr[["domain","keyword_title","p"]]
-total_queries = test.groupby(['domain']).size() 
-total_queries = total_queries[0]
-total_queries = total_queries / 4
-df_fr_spread = raw_data_fr.filter(items=['keyword_title','p','domain','date'])
-df_fr_spread['Ranking range'] = df_fr_spread.apply(f, axis=1)
-df_fr_spread = df_fr_spread.groupby(['date','Ranking range']).size().reset_index().rename(columns={0:"count"}) 
-df_fr_spread["Share"] = df_fr_spread["count"] / total_queries
-df_fr_spread[["Share"]] = ( 100 * df_fr_spread[["Share"]] ).round(2).astype(str) + "%" # The rounding is optional
-chart_2 = alt.Chart(df_fr_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
+df_spread = pd.read_csv(f"RAW_DATA/raw_data_manomano_it_it_{dates_recent}.csv")
+chart_2 = alt.Chart(df_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
 st.altair_chart(chart_2, use_container_width=True)
-
 
 
 st.title('SEO visibility metrics 🇬🇧')
@@ -127,20 +105,9 @@ url = f"AGG_DATA/final_data/agg_data_manomano_co_uk_en_{dates_recent}.csv"
 df_uk = pd.read_csv(url,index_col=0)
 st.write(df_uk)
 header =st.header("Get ranking share 🇬🇧")
-raw_data_url = f"RAW_DATA/raw_data_manomano_co_uk_en_{dates}.csv"
-raw_data_fr = pd.read_csv(raw_data_url)
-test = raw_data_fr[["domain","keyword_title","p"]]
-total_queries = test.groupby(['domain']).size() 
-total_queries = total_queries[0]
-total_queries = total_queries / 4
-df_fr_spread = raw_data_fr.filter(items=['keyword_title','p','domain','date'])
-df_fr_spread['Ranking range'] = df_fr_spread.apply(f, axis=1)
-df_fr_spread = df_fr_spread.groupby(['date','Ranking range']).size().reset_index().rename(columns={0:"count"}) 
-df_fr_spread["Share"] = df_fr_spread["count"] / total_queries
-df_fr_spread[["Share"]] = ( 100 * df_fr_spread[["Share"]] ).round(2).astype(str) + "%" # The rounding is optional
-chart_2 = alt.Chart(df_fr_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
+df_spread = pd.read_csv(f"RAW_DATA/raw_data_manomano_co_uk_en_{dates_recent}.csv")
+chart_2 = alt.Chart(df_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
 st.altair_chart(chart_2, use_container_width=True)
-
 
 
 st.title('SEO visibility metrics  🇩🇪')
@@ -149,16 +116,6 @@ url = f"AGG_DATA/final_data/agg_data_manomano_de_de_{dates_recent}.csv"
 df_de = pd.read_csv(url,index_col=0)
 st.write(df_de)
 header =st.header("Get ranking share 🇩🇪")
-raw_data_url = f"RAW_DATA/raw_data_manomano_de_de_{dates}.csv"
-raw_data_fr = pd.read_csv(raw_data_url)
-test = raw_data_fr[["domain","keyword_title","p"]]
-total_queries = test.groupby(['domain']).size() 
-total_queries = total_queries[0]
-total_queries = total_queries / 4
-df_fr_spread = raw_data_fr.filter(items=['keyword_title','p','domain','date'])
-df_fr_spread['Ranking range'] = df_fr_spread.apply(f, axis=1)
-df_fr_spread = df_fr_spread.groupby(['date','Ranking range']).size().reset_index().rename(columns={0:"count"}) 
-df_fr_spread["Share"] = df_fr_spread["count"] / total_queries
-df_fr_spread[["Share"]] = ( 100 * df_fr_spread[["Share"]] ).round(2).astype(str) + "%" # The rounding is optional
-chart_2 = alt.Chart(df_fr_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
+df_spread = pd.read_csv(f"RAW_DATA/raw_data_manomano_de_de_{dates_recent}.csv")
+chart_2 = alt.Chart(df_spread).mark_bar().encode(x="date", y="count",color="Ranking range",tooltip=('Share','count')).properties(title="Share of ranking range")
 st.altair_chart(chart_2, use_container_width=True)
