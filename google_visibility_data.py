@@ -69,7 +69,7 @@ dates = [dates_recent,WoW, MoM, QoQ]
 
 st.title('SEO visibility metrics 🇫🇷')
 st.write(f"last update {dates_recent}")
-url = f"SEOBSERVER/AGG_DATA/final_data/raw_data_manomano_fr_fr_{dates_recent}.csv"
+url = f"SEOBSERVER/AGG_DATA/final_data/agg_data_manomano_fr_fr_{dates_recent}.csv"
 df_fr = pd.read_csv(url,index_col=0)
 st.dataframe(df_fr)
 header =st.header("Get ranking share 🇫🇷")
