@@ -59,7 +59,7 @@ def f(dff_spread):
 
 dates = requests.get("https://api1.seobserver.com/organic_keywords/list_dates.json?api_key=60f82fae5f469aa7018b4616a96479aa23c58eb9ce42b6c6b86fbb1f8&base=manomano_fr_fr&offset=0")
 dates = dates.json()["data"]
-dates_recent = dates[0]
+dates_recent = dates[1]
 WoW = dates[2]
 MoM = dates[6]
 QoQ = dates[18]
